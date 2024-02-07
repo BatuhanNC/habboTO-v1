@@ -1,0 +1,1006 @@
+:root {
+  --colorDarkRed: #190004;
+  --colorYellow: #e49c16;
+  --colorRed: #a01e06;
+  --colorDarkGreen: #00813e;
+  --colorLightGreen: #8eda55;
+  --colorHoverGreen: #00ab54;
+  --colorHabboYellow: #ffb900;
+  --colorHabboLightYellow: #ffea00;
+  --colorOrange: #e78d20;
+  --boxShadow: 2px 2px 10px var(--colorRed), -2px -2px 10px var(--colorRed);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  overflow-x: hidden;
+  background: url(../images/habboto-background.png);
+  background-repeat: repeat;
+  background-size: auto;
+}
+.active-section {
+  display: block;
+}
+.inactive-section {
+  display: none !important;
+}
+.content {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  padding: 0 20px;
+}
+.content .columnLeft {
+  width: 22%;
+  padding: 10px;
+}
+.content .columnRight {
+  width: 78%;
+  min-height: 1000px;
+  margin: 30px 50px 30px 30px;
+  border-radius: 10px;
+}
+/* ******************************************HEADER START*********************************************** */
+header {
+  width: 100%;
+  background-color: var(--colorDarkRed);
+  padding: 20px 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px var(--colorRed), -2px -2px 10px var(--colorRed);
+  position: sticky;
+  top: 30px;
+  bottom: 0;
+  z-index: 99;
+}
+header .userMenu {
+  width: 200px;
+  height: 200px;
+  border-image: url(../images/user-menu-border2.png);
+  border-image-slice: 30;
+  border-width: 25px;
+  border-style: inset;
+  margin: 0 auto 40px auto;
+  position: relative;
+}
+header .userMenu span {
+  background-image: url(../images/marble-tile.png),
+    url(https://habbofont.net/font/habjoy_light/habboto.gif),
+    url(../images/background-christmas.png);
+  background-repeat: repeat-x, no-repeat, repeat;
+  background-position: center bottom, center 15px, center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  bottom: -10px;
+  right: -10px;
+}
+header .userMenu span p {
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding: 2px 4px;
+  font-size: 16px;
+  margin-top: -25px;
+  margin-bottom: 10px;
+  position: relative;
+  opacity: 0;
+  transition: 200ms all ease;
+}
+header .userMenu span p::before {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-top: 15px solid rgb(240, 240, 240);
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  position: absolute;
+  bottom: -10px;
+  left: 25%;
+}
+header .userMenu .userAvatar {
+  position: absolute;
+  bottom: 15px;
+  width: 70px;
+}
+header .userMenu .userRegister {
+  position: absolute;
+  right: 5px;
+  top: 40px;
+}
+header .userMenu .userLogin {
+  position: absolute;
+  left: 5px;
+  top: 40px;
+}
+header .userMenu .userRegister:hover,
+header .userMenu .userLogin:hover,
+header .userMenu .userRegister:hover p,
+header .userMenu .userLogin:hover p {
+  opacity: 1;
+  cursor: pointer;
+}
+header .menu .menuButton {
+  height: 40px;
+  background: var(--colorOrange);
+  list-style: none;
+  margin: 10px 20px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  color: #000;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  line-height: 40px;
+  border: 3px solid var(--colorHabboLightYellow);
+}
+header .menu .menuButton:hover {
+  cursor: pointer;
+}
+
+/* ╔═════════════════════════════════════════════════════════RIGHT COLUMN css═════════════════════════════════════════════════════════════════╗
+     ╚═════════════════════════════════════════════════════════RIGHT COLUMN css═════════════════════════════════════════════════════════════════╝ */
+.columnRight .headerBar {
+  width: 100%;
+  height: auto;
+  background-color: var(--colorDarkRed);
+  box-shadow: 2px 2px 10px var(--colorRed), -2px -2px 10px var(--colorRed);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.columnRight .headerBar .welcomeGuest {
+  width: auto;
+  height: auto;
+  font-size: 25px;
+  color: var(--colorRed);
+  float: right;
+  display: flex;
+  font-weight: bold;
+  border-bottom: 2px solid var(--colorRed);
+}
+.columnRight .headerBar .welcomeGuest p {
+  width: auto;
+}
+.columnRight .headerBar .mobileMenuIcon {
+  min-width: 50px;
+  min-height: 40px;
+  display: none;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 1px 1px 5px var(--colorRed);
+  padding: 5px;
+}
+.columnRight .headerBar .mobileMenuIcon span {
+  border-top: 4px solid var(--colorRed);
+  width: 40px;
+  position: absolute;
+  top: 5px;
+}
+.columnRight .headerBar .mobileMenuIcon span::before {
+  content: "";
+  border-top: 4px solid var(--colorRed);
+  position: absolute;
+  top: 8px;
+  left: 5px;
+  right: 5px;
+}
+.columnRight .headerBar .mobileMenuIcon span::after {
+  content: "";
+  width: 40px;
+  border-top: 4px solid var(--colorRed);
+  position: absolute;
+  top: 19px;
+}
+.columnRight .mobileMenu {
+  min-width: 50px;
+  color: #fff;
+  position: relative;
+  display: none;
+  overflow: hidden;
+  transition: 500ms all ease-in-out;
+}
+.columnRight .mobileMenu ul {
+  background-color: var(--colorDarkRed);
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.columnRight .mobileMenu ul li {
+  list-style: none;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: var(--colorRed);
+  width: 120px;
+  text-align: center;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 10px;
+}
+.columnRight .announcement {
+  width: 100%;
+  height: auto;
+  background-color: var(--colorYellow);
+  box-shadow: var(--boxShadow), inset 2px 2px 5px var(--colorDarkRed),
+    inset -2px -2px 5px var(--colorDarkRed);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px 0;
+  border: 2px solid var(--colorDarkRed);
+  color: var(--colorDarkRed);
+  font-size: 17px;
+}
+.columnRight .newsBar {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 20px 0;
+  background-color: var(--colorDarkRed);
+  padding: 20px 30px;
+  border-radius: 5px;
+  box-shadow: var(--boxShadow);
+}
+.columnRight .newsBar .new {
+  width: 40%;
+  height: 250px;
+  background: url(https://habbolar.com/img/userfiles/2023-12/promo_piyango.png);
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 10px 15px#000, inset 0 -15px 10px#000;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  border-image: url(../images/newBorder.png);
+  border-width: 25px;
+  border-color: transparent;
+  border-style: solid;
+  border-image-slice: 28;
+}
+.columnRight .newsBar .new:nth-child(1),
+.columnRight .newsBar .new:nth-child(4),
+.columnRight .newsBar .new:nth-child(5) {
+  width: calc(60% - 40px);
+  background: url(https://habbolar.com/img/userfiles/kapakresim/lpromo_Mar23.png);
+  background-position: center;
+}
+.new .newName {
+  min-height: 70px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, #000);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+.new .newType {
+  color: #fff;
+  background: linear-gradient(var(--colorDarkRed), rgba(0 0 0 / 20%));
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 0 0 0 10px;
+}
+.new .newInformation {
+  color: #fff;
+  position: absolute;
+  background: linear-gradient(var(--colorDarkRed), rgba(0 0 0 / 20%));
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 0 0 10px 0;
+  font-weight: 400;
+  display: flex;
+}
+.new .newInformation b {
+  font-weight: 600;
+  margin: 0 3px;
+}
+.columnRight .lastFurnis {
+  width: 100%;
+  padding: 5px 10px;
+  background-color: var(--colorDarkRed);
+  box-shadow: var(--boxShadow);
+  border-radius: 5px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+}
+.columnRight .lastFurnis .item {
+  min-width: 130px;
+  height: 200px;
+  background: url(../images/lastFurnis.png);
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-right: 20px;
+  z-index: revert-layer;
+}
+.columnRight .lastFurnis .item .icon {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.columnRight .lastFurnis .item .name {
+  min-width: 180px;
+  position: absolute;
+  top: -20px;
+  text-align: center;
+  background-color: var(--colorYellow);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  opacity: 0;
+  transition: 500ms all ease-out;
+  display: flex;
+  z-index: 99;
+}
+.columnRight .lastFurnis .item .name::before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 15px solid var(--colorYellow);
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  bottom: -14px;
+  left: 40%;
+}
+.columnRight .lastFurnis .item:hover .name {
+  opacity: 1;
+}
+.columnRight .lastBadges {
+  width: 100%;
+  background-color: var(--colorDarkRed);
+  box-shadow: var(--boxShadow);
+  border-radius: 5px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.columnRight .lastBadges .item {
+  min-width: 60px;
+  min-height: 60px;
+  background: url(../images/lastbadges.png);
+  background-position: center;
+  background-size: cover;
+  /* box-shadow: inset 3px 3px 1px var(--colorRed),
+    inset -3px -3px 1px var(--colorRed), inset 3px -3px 1px var(--colorRed),
+    inset -3px 3px 1px var(--colorRed); */
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 10px;
+}
+.columnRight .lastBadges .item .code {
+  min-width: 60px;
+  opacity: 0;
+  position: absolute;
+  background-color: var(--colorYellow);
+  color: #fff;
+  text-align: center;
+  top: -50px;
+  font-size: 20px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  transition: 200ms all ease-in;
+}
+.columnRight .lastBadges .item .code::before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid var(--colorYellow);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  bottom: -8px;
+  left: 30%;
+}
+.columnRight .lastBadges .item:hover .code {
+  opacity: 1;
+}
+.columnRight .title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
+  padding: 5px 0;
+}
+.columnRight .title span {
+  display: flex;
+  flex-direction: column;
+}
+.columnRight .title .subject {
+  font-size: 20px;
+  text-shadow: 2px 2px 0 var(--colorDarkRed), 2px -2px var(--colorDarkRed),
+    -2px 2px var(--colorDarkRed), -2px -2px var(--colorDarkRed);
+}
+.columnRight .title .info {
+  font-weight: normal;
+  color: gray;
+}
+.columnRight .title .icon {
+  width: 50px;
+  height: 50px;
+  background-color: var(--colorRed);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: inset 4px 4px 0 #fff, inset -2px -2px 0 #fff,
+    inset 2px -2px 0 #fff, inset -2px 2px 0 #fff;
+  margin-right: 10px;
+}
+/*╔═════════════════════════════════════════════════════════MEMBER PROFILE═════════════════════════════════════════════════════════════════╗-->
+  ╚═════════════════════════════════════════════════════════MEMBER PROFILE═════════════════════════════════════════════════════════════════╝-*/
+.memberProfile {
+  width: 100%;
+  background-color: var(--colorDarkRed);
+  border-radius: 5px;
+  box-shadow: var(--boxShadow);
+  padding: 20px 40px;
+}
+.memberProfile .memberBanner {
+  width: 100%;
+  height: 150px;
+  background: url(../images/sky-background.png);
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: inset 0 2px 5px #fff;
+}
+.memberProfile .memberBanner .memberAvatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(var(--colorDarkRed), var(--colorYellow));
+  position: absolute;
+  bottom: -30%;
+  left: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 9;
+}
+.memberProfile .memberBanner .memberAvatar img {
+  filter: drop-shadow(2px 2px 0 #fff) drop-shadow(-2px -2px 0 #fff)
+    drop-shadow(2px -2px 0 #fff) drop-shadow(-2px 2px 0 #fff);
+}
+.memberProfile .memberName {
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  left: calc(10% + 170px);
+  background-color: var(--colorDarkRed);
+  color: var(--colorRed);
+  padding: 5px 20px;
+  border-radius: 10px 10px 0 0;
+}
+.memberProfile .memberInformation {
+  width: 100%;
+  margin-top: 50px;
+  position: relative;
+  border-radius: 5px;
+}
+.memberProfile .memberInformation .memberLeft {
+  width: 48%;
+  height: 348px;
+  background: url(https://images.habbo.com/c_images/reception/background_left_Xmas23.png),
+    url(https://images.habbo.com/c_images/reception/background_gradient_Xmas23.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat, repeat-x;
+  border-radius: 10px;
+  position: relative;
+}
+.memberProfile .memberInformation .memberLeft img {
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  filter: drop-shadow(1px 1px 0 #fff) drop-shadow(-1px -1px 0 #fff)
+    drop-shadow(1px -1px 0 #fff) drop-shadow(-1px 1px 0 #fff);
+}
+.memberProfile .memberInformation .memberRight {
+  width: 48%;
+  height: 348px;
+  background: url(https://images.habbo.com/c_images/reception/background_gradient_Xmas23.png);
+  background-position: center;
+  border-radius: 10px;
+  float: right;
+  padding: 20px 30px;
+}
+.memberProfile .memberInformation .memberRight ul li {
+  list-style: none;
+  color: #f1f1f1;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.memberProfile .memberInformation .memberRight ul li b {
+  margin-right: 5px;
+}
+.memberProfile .memberInformation .memberRight .badges {
+  display: flex;
+}
+.memberProfile .memberInformation .memberRight .badges li {
+  width: 60px;
+  height: 60px;
+  background-color: #00000073;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  align-items: center;
+  border: 2px solid #000;
+  border-bottom: 5px solid #000;
+}
+.memberInformation .title {
+  margin-bottom: 20px;
+}
+.memberInformation .title .subject {
+  font-size: 25px;
+}
+/*╔═════════════════════════════════════════════════════════NEW MAIN PAGE═════════════════════════════════════════════════════════════════╗-->
+  ╚═════════════════════════════════════════════════════════NEW MAIN PAGE═════════════════════════════════════════════════════════════════╝-*/
+.newMain {
+  width: 100%;
+  height: 500px;
+  background-color: var(--colorDarkRed);
+  box-shadow: var(--boxShadow);
+  border-radius: 5px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.newMain .banner {
+  width: 100%;
+  height: 220px;
+  background: url(https://habbolar.com/img/userfiles/kapakresim/lpromo_Mar23.png);
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 -20px 20px var(--colorDarkRed);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 30px;
+  position: relative;
+}
+.newMain .banner :is(h2, div) {
+  background-color: rgba(0 0 0 / 50%);
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.newMain .banner div {
+  font-size: 14px;
+  font-weight: 600;
+}
+.newMain .banner .addComment {
+  width: 350px;
+  height: 200px;
+  background-color: rgba(0 0 0 / 70%);
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+.newMain .banner .addComment .warning {
+  width: 100%;
+  height: 50px;
+  background-image: url(../images/Hotel-Nacht.png);
+  box-shadow: inset 0 0 100px 0 rgba(255 0 0 / 0.8);
+  background-position: center bottom;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.newMain .banner .addComment .warning p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 10px;
+}
+.newMain .banner .addComment .title {
+  width: 100%;
+  font-size: 16px;
+}
+.newMain .banner .active {
+  width: 100%;
+  height: 100%;
+}
+.newMain .banner .active #commentArea {
+  width: 100%;
+  height: calc(100% - 80px);
+  border-radius: 5px;
+  resize: none;
+  font-size: 15px;
+  padding: 0;
+}
+.newMain .banner #commentSend {
+  width: 100%;
+  height: 30px;
+  background-color: var(--colorDarkGreen);
+  border: 2px solid var(--colorLightGreen);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.newMain .banner #commentSend:hover {
+  cursor: pointer;
+  background-color: var(--colorHoverGreen);
+}
+.newMain .comments {
+  width: 100%;
+  height: 200px;
+  /* background-color: var(--colorYellow); */
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 2px solid #373737;
+}
+.newMain .comments .item {
+  min-width: 300px;
+  width: 300px;
+  height: 150px;
+  background-color: var(--colorOrange);
+  color: var(--colorDarkRed);
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin-right: 50px;
+  padding: 0 0 0 10px;
+  border: 2px solid var(--colorHabboLightYellow);
+  font-weight: 500;
+}
+.newMain .comments .item .text {
+  width: 100%;
+  height: fit-content;
+  margin-left: 10px;
+}
+.newMain .comments .item .avatar {
+  min-width: 50px;
+  min-height: 120px;
+  background-color: var(--colorHabboYellow);
+  border: 3px solid var(--colorHabboLightYellow);
+  margin-left: -30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.newMain .comments .item .avatar .username {
+  width: fit-content;
+  background-color: #fff;
+  color: #505050;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  position: absolute;
+  top: -30px;
+  font-size: 14px;
+  display: none;
+}
+.newMain .comments .item .avatar .username::before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid #fff;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  bottom: -9px;
+  left: calc(50% - 4px);
+}
+.newMain .comments .item .avatar:hover .username {
+  display: block;
+}
+/*╔═════════════════════════════════════════════════════════HABBOTO TEAM PAGE═════════════════════════════════════════════════════════════════╗-->
+  ╚═════════════════════════════════════════════════════════HABBOTO TEAM PAGE═════════════════════════════════════════════════════════════════╝-*/
+.team {
+  width: 100%;
+  background-color: var(--colorDarkRed);
+  box-shadow: var(--boxShadow);
+  border-radius: 5px;
+  margin-top: 40px;
+  padding: 20px 50px;
+}
+.team .rank {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 50px;
+}
+.team .rank .rankTitle {
+  width: 100%;
+  background-color: #8b2121;
+  color: #d84242;
+  font-size: 25px;
+  border-radius: 10px;
+  line-height: 50px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #000;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border: 2px solid #d84242;
+}
+.team .rank .rankTitle img {
+  margin-right: 5px;
+}
+.team .rank .item {
+  width: 200px;
+  min-width: 200px;
+  height: 145px;
+  background-color: #8b2121;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  border: 2px solid #d84242;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+.team .rank .item .avatar {
+  width: 70px;
+  height: 120px;
+  background: url(../images/ground.png), url(../images/brick.png);
+  background-repeat: repeat-x, repeat;
+  background-position: bottom, center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 2px solid var(--colorDarkRed);
+  margin-left: -40px;
+}
+.team .rank .item :is(.username, .memberRank) {
+  width: 100%;
+  padding: 2px 3px;
+  color: #d84242;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  top: 30px;
+  left: 15px;
+}
+.team .rank .item .username {
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+.team .rank .item .memberRank {
+  top: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 2px 2px 5px rgba(0 0 0/0.4), -2px -2px 5px rgba(0 0 0/0.4),
+    -2px 2px 5px rgba(0 0 0/0.4), 2px -2px 5px rgba(0 0 0/0.4);
+}
+.team .development .item {
+  background-color: #6a6a6a;
+  border-color: #999999;
+}
+.team .development .item .memberRank {
+  color: #999999;
+}
+.team .development .rankTitle {
+  background-color: #6a6a6a;
+  border-color: #999999;
+  color: #999999;
+}
+.team .teamLeader .item {
+  background-color: #a4600c;
+  border-color: #de8e2c;
+}
+.team .teamLeader .item .memberRank {
+  color: #de8e2c;
+}
+.team .teamLeader .rankTitle {
+  background-color: #a4600c;
+  border-color: #de8e2c;
+  color: #de8e2c;
+}
+.team .reporter .item {
+  background-color: #127830;
+  border-color: #279e24;
+}
+.team .reporter .item .memberRank {
+  color: #279e24;
+}
+.team .reporter .rankTitle {
+  background-color: #127830;
+  border-color: #279e24;
+  color: #279e24;
+}
+.team .artist .item {
+  background-color: #03633b;
+  border-color: #00ca76;
+}
+.team .artist .item .memberRank {
+  color: #00ca76;
+}
+.team .artist .rankTitle {
+  background-color: #03633b;
+  border-color: #00ca76;
+  color: #00ca76;
+}
+.team .roomDesigner .item {
+  background-color: #1f5e7e;
+  border-color: #508cab;
+}
+.team .roomDesigner .item .memberRank {
+  color: #508cab;
+}
+.team .roomDesigner .rankTitle {
+  background-color: #1f5e7e;
+  border-color: #508cab;
+  color: #508cab;
+}
+.team .inGameSupport .item {
+  background-color: #18297b;
+  border-color: #3a53cc;
+}
+.team .inGameSupport .item .memberRank {
+  color: #3a53cc;
+}
+.team .inGameSupport .rankTitle {
+  background-color: #18297b;
+  border-color: #3a53cc;
+  color: #3a53cc;
+}
+/*╔═════════════════════════════════════════════════════════HABBOTO HABBO REGISTER═════════════════════════════════════════════════════════════════╗-->
+  ╚═════════════════════════════════════════════════════════HABBOTO HABBO REGISTER═════════════════════════════════════════════════════════════════╝-*/
+.habboRegister {
+  width: 100%;
+  height: 500px;
+  background: var(--colorDarkRed);
+  margin-top: 40px;
+  border-radius: 5px;
+  box-shadow: var(--boxShadow);
+  display: grid;
+  place-items: center;
+}
+
+.habboRegister form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(../images/register-background.png);
+  width: 60%;
+  height: 95%;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.habboRegister form .registerTitle {
+  width: 100%;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--colorRed);
+  position: absolute;
+  top: 0;
+}
+.habboRegister form .bottom {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--colorRed);
+  height: 50px;
+  left: 0;
+  right: 0;
+}
+.habboRegister label {
+  width: 350px;
+  height: 60px;
+  background: #dcdcdc;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+.habboRegister label span {
+  width: 50px;
+  height: 50px;
+  background: #999999;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 3px 3px 3px #6a6a6a, inset -3px -3px 3px #6a6a6a;
+}
+.habboRegister label input {
+  border: 0;
+  height: 50px;
+  width: calc(100% - 55px);
+  font-size: 17px;
+  font-weight: 600;
+  background-color: #dcdcdc;
+  color: #6a6a6a;
+  padding-left: 10px;
+}
+.habboRegister label input:focus {
+  outline: none;
+}
+.habboRegister .alert {
+  border: 2px solid red;
+  color: red;
+  height: 40px;
+}
+.habboRegister .alert b {
+  margin-right: 5px;
+}
+.habboRegister .regSubmit {
+  background-color: #0f7dbc;
+  border: 2px solid #2a9cde;
+}
+.habboRegister label input[type="submit"] {
+  background-color: #0f7dbc;
+  color: #fff;
+}
+
+/*╔═════════════════════════════════════════════════════════RIGHT COLUMN ON SCREEN═════════════════════════════════════════════════════════════════╗-->
+  ╚═════════════════════════════════════════════════════════RIGHT COLUMN ON SCREEN═════════════════════════════════════════════════════════════════╝-*/
+@media only screen and (max-width: 800px) {
+  .columnLeft {
+    display: none !important;
+  }
+  .columnRight {
+    width: 100% !important;
+    margin: 20px 0 0 0 !important;
+  }
+  .mobileMenuIcon {
+    display: block !important;
+  }
+  .new {
+    width: 100% !important;
+  }
+  .welcomeGuest {
+    display: none !important;
+  }
+}
